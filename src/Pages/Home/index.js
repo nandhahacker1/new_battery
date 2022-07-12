@@ -53,6 +53,22 @@ const Home = () => {
         .sort((a, b) => sortable("connectionStatusId", a, b));
       setBatteries(data);
     }
+    if (alignData === 5) {
+      setBatteries(batteryDetails);
+    }
+    if (alignData === 6) {
+      const data = batteryDetails
+        ?.map((item) => item)
+        .sort((a, b) => a.stateOfCharge - b.stateOfCharge)
+      setBatteries(data);
+    }
+    if (alignData === 7) {
+      const data = batteryDetails
+        ?.map((item) => item).sort((a, b) => b.stateOfCharge - a.stateOfCharge)
+      setBatteries(data);
+    }
+
+
   }, [alignData, batteryDetails]);
 
 

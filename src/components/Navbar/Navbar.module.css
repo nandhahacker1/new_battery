@@ -4,6 +4,10 @@
     border-bottom: 2px solid #dbdbdb;
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: #ECECF8;
+    z-index: 9999;
 }
 
 .logo {
@@ -22,7 +26,7 @@
     background-color: white;
 }
 
-.filter{
+.filter {
     margin-right: 1rem;
 }
 
@@ -34,16 +38,16 @@
     padding: .5rem;
 }
 
-.Dropdown_menu{
+.Dropdown_menu {
     background-color: #fff;
     border-radius: 20px !important;
     overflow: hidden;
     display: block;
 }
 
-  
-  .Dropdown-menu   option {
+
+.Dropdown-menu option {
     color: black !important;
     padding: .5rem !important;
     background-color: aquamarine !important;
-  }
+}
