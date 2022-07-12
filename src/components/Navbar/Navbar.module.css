@@ -1,0 +1,49 @@
+.navbar {
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 2px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.logo h2 {
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    max-width: fit-content;
+}
+
+.logo h2:hover {
+    background-color: white;
+}
+
+.filter{
+    margin-right: 1rem;
+}
+
+.filter select {
+    background: #fff;
+    color: black !important;
+    border-radius: 10px !important;
+    border: none !important;
+    padding: .5rem;
+}
+
+.Dropdown_menu{
+    background-color: #fff;
+    border-radius: 20px !important;
+    overflow: hidden;
+    display: block;
+}
+
+  
+  .Dropdown-menu   option {
+    color: black !important;
+    padding: .5rem !important;
+    background-color: aquamarine !important;
+  }
