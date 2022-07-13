@@ -1,46 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './Navbar.module.css'
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ alignData, setAlignData }) => {
+const Navbar = ({ setAlignData, setInputText }) => {
 
   const navigate = useNavigate();
 
+  const [addCalss, setAddCalss] = useState(false)
+
+  const handleAlign = (num) => () => {
+    setAlignData(num)
+  }
+
+  const handleChange = (text) => {
+    setInputText(text)
+    if (text.length > 0) {
+      setAlignData(7)
+    }
+    else{
+      setAlignData(1)
+    }
+  }
+
   return (
     <>
-      <div className={styles.navbar}>
+      <div className={`${styles.navbar} ${styles.nav1} ${addCalss ? styles.responsive : ""}`}  >
         <div className={styles.logo}>
           <h2 onClick={() => navigate("/")} >BatteryInfo</h2>
         </div>
+
+        <input type="text" placeholder="Search" autoFocus onChange={e => handleChange(e.target.value)} />
+
         <div className={styles.filter}>
-          <select
-            value={alignData}
-            onChange={(e) => setAlignData(Number(e.target.value))}
-            className={styles.Dropdown_control}
-          >
-            <optgroup className={styles.Dropdown_menu}>
-              <option value="1">Id</option>
-              <option value="2">Location</option>
-              <option value="3">StateofCharge</option>
-              <option value="4">ConnectionStatusId</option>
-            </optgroup>
-          </select>
+          <div className={styles.dropdown}>
+            <button className={styles.dropbtn}>
+              <span>Filter</span>
+              <i className="fa fa-caret-down"></i>
+            </button>
+            <div className={styles.dropdown_content}>
+              <a href="#" onClick={handleAlign(1)}>Id</a>
+              <a href="#" onClick={handleAlign(2)}>Location</a>
+              <a href="#" onClick={handleAlign(3)}>ConnectionStatusId</a>
+            </div>
+          </div>
+          <div className={styles.dropdown}>
+            <button className={styles.dropbtn}>
+              <span>Filter</span>
+              <i className="fa fa-caret-down"></i>
+            </button>
+            <div className={styles.dropdown_content}>
+              <a href="#" onClick={handleAlign(4)}>Normal</a>
+              <a href="#" onClick={handleAlign(5)}>Low - High</a>
+              <a href="#" onClick={handleAlign(6)}>High - Low</a>
+            </div>
+          </div>
         </div>
-       
-        <div className={styles.filter}>
-          <select
-            value={alignData}
-            onChange={(e) => setAlignData(Number(e.target.value))}
-            className={styles.Dropdown_control}
-          >
-            <optgroup className={styles.Dropdown_menu}>
-              <option value="5">Normal</option>
-              <option value="6">Low - High</option>
-              <option value="7">High - Low</option>
-            </optgroup>
-          </select>
+
+
+
+        <div href="#" className={styles.icon} onClick={() => setAddCalss(!addCalss)}  >
+          <i className="fa-solid fa-bars"></i>
         </div>
       </div>
+
+      <div className={`${styles.navbar} ${styles.nav2} ${addCalss ? styles.responsive : ""}`}  >
+        <div className={styles.logo}>
+          <h2 onClick={() => navigate("/")} >BatteryInfo</h2>
+        </div>
+
+        <div className={styles.bottom} >
+          <div className={styles.filter}>
+            <div className={styles.dropdown}>
+              <button className={styles.dropbtn}>
+                <span>Filter</span>
+                <i className="fa fa-caret-down"></i>
+              </button>
+              <div className={styles.dropdown_content}>
+                <a href="#" onClick={handleAlign(1)}>Id</a>
+                <a href="#" onClick={handleAlign(2)}>Location</a>
+                <a href="#" onClick={handleAlign(3)}>ConnectionStatusId</a>
+              </div>
+            </div>
+            <div className={styles.dropdown}>
+              <button className={styles.dropbtn}>
+                <span>Filter</span>
+                <i className="fa fa-caret-down"></i>
+              </button>
+              <div className={styles.dropdown_content}>
+                <a href="#" onClick={handleAlign(4)}>Normal</a>
+                <a href="#" onClick={handleAlign(5)}>Low - High</a>
+                <a href="#" onClick={handleAlign(6)}>High - Low</a>
+              </div>
+            </div>
+          </div>
+          <input type="text" placeholder="Search" autoFocus onChange={e => handleChange(e.target.value)} />
+        </div>
+
+        <div href="#" className={styles.icon} onClick={() => setAddCalss(!addCalss)}  >
+          <i className="fa-solid fa-bars"></i>
+        </div>
+      </div>
+
       <br />
       <br />
       <br />
